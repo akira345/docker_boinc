@@ -3,8 +3,7 @@ FROM ubuntu:18.04
 ENV PROJECT_URL http://setiathome.berkeley.edu/
 ENV AUTH_KEY 123456789
 
-RUN apt-get -y update&&apt-get -y upgrade
-RUN apt-get -y install boinc-client
+RUN apt-get -y update && apt-get -y install boinc-client && rm -r /var/lib/apt/lists/*
 
 VOLUME /data
 WORKDIR /data
