@@ -2,7 +2,7 @@ version: '2'
 services:
   boinc:
     restart: always
-    build: ./
+    image: akira345/boinc:latest
     volumes:
       - "boinc_data:/data:rw"
     environment:
