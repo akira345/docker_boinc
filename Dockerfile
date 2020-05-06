@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:20.10
 
 ENV PROJECT_URL http://setiathome.berkeley.edu/
 ENV AUTH_KEY 123456789
