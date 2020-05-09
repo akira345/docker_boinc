@@ -1,13 +1,10 @@
-version: '2'
+version: "2"
 services:
   boinc:
     restart: always
-    image: akira345/boinc:latest
+    image: akira345/boinc:account_manager
     volumes:
       - "boinc_data:/data:rw"
-    environment:
-      PROJECT_URL: 
-      AUTH_KEY: 
 volumes:
   boinc_data:
     driver: local
