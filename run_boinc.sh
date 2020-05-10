@@ -1,4 +1,5 @@
 #! /bin/bash
+cp /var/lib/boinc/*.* /data
 # Configure the GUI RPC
 echo ${BOINC_GUI_RPC_PASSWORD} > /data/gui_rpc_auth.cfg
 echo ${BOINC_REMOTE_HOST} > /data/remote_hosts.cfg

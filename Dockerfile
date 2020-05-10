@@ -12,7 +12,6 @@ EXPOSE 31416
 RUN apt-get -y update \
     && apt-get -y install boinc-client \
     && rm -r /var/lib/apt/lists/*
-RUN cp /var/lib/boinc/*.* /data
 
 VOLUME /data
 WORKDIR /data
