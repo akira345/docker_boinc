@@ -14,6 +14,7 @@ on:
     branches:
       - master
       - main
+      - account_manager
 
   schedule:
     - cron: "0 0 1 * *"
@@ -58,4 +59,4 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGENAME }}:release-${{ env.BRANCH_NAME }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGENAME }}:${{ env.BRANCH_NAME }}
