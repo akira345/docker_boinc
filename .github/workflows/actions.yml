@@ -52,12 +52,12 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGENAME }}:latest
 
-      - name: Build and push(release-${{ env.BRANCH_NAME }})
+      - name: Build and push(release-${{ $BRANCH_NAME }})
         if: (!(contains(github.ref, 'main') || contains(github.ref, 'master')))
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGENAME }}:${{ env.BRANCH_NAME }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGENAME }}:${{ $BRANCH_NAME }}
 
