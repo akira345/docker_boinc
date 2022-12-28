@@ -24,14 +24,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Extract branch name
+      - name: Set Branch Name
         shell: bash
         run: |
           echo "${GITHUB_REF#refs/heads/}"
           echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
-      #  id: extract_branch
-      #- name: Set BranchName
-      #  run: echo "BRANCH_NAME=${{ steps.extract_branch.outputs.branch }}" >> $GITHUB_ENV
 
       - name: checkout
         uses: actions/checkout@v3
@@ -53,11 +50,6 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGENAME }}:latest
-
-      - name: debug
-        run: |
-          echo $BRANCH_NAME
-          echo ${{ env.BRANCH_NAME }}
 
       - name: Build and push(release-${{ env.BRANCH_NAME }})
         if: (!(contains(github.ref, 'main') || contains(github.ref, 'master')))
