@@ -26,7 +26,9 @@ jobs:
     steps:
       - name: Extract branch name
         shell: bash
-        run: echo "{name}=branch::${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+        run: |
+          echo "${GITHUB_REF#refs/heads/}"
+          echo "::set-output name=BRANCH_NAME::${GITHUB_REF#refs/heads/}"
         id: extract_branch
       - name: Set BranchName
         run: echo "BRANCH_NAME=${{ steps.extract_branch.outputs.branch }}" >> $GITHUB_ENV
