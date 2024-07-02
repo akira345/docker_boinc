@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 # Global environment settings
 ENV BOINC_GUI_RPC_PASSWORD="123" \
